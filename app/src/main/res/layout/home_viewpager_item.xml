@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="product"
+            type="com.example.ad_s3.db.Product" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cons_vp_item"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="8dp"
+            android:background="#BBDEFB">
+
+
+            <ImageView
+                android:id="@+id/img_prodct"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:adjustViewBounds="true"
+                android:elevation="4dp"
+                app:imageResource="@{product.image}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/mobile1" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:elevation="4dp"
+                tools:text="TextView"
+                android:text="@{product.name}"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/img_prodct"
+                app:layout_constraintTop_toTopOf="@+id/img_prodct" />
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:elevation="4dp"
+                tools:text="TextView"
+                android:text="@{String.valueOf(product.price)}"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/img_prodct"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+            <Button
+                android:id="@+id/btn_buy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#512DA8"
+                android:text="BUY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
